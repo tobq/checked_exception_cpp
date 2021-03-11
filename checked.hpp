@@ -55,6 +55,10 @@ test_checked test_throw() {
     return std::invalid_argument("test exception");
 }
 
+test_checked test_throw_2() {
+    return std::runtime_error("test a different exception");
+}
+
 int main() {
     {
         auto result = test();
@@ -62,6 +66,10 @@ int main() {
     }
     {
         auto result = test_throw();
+        log(result);
+    }
+    {
+        auto result = test_throw_2();
         log(result);
     }
     return 0;
